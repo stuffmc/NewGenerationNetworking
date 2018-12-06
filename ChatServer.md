@@ -12,7 +12,7 @@ For this project you'll work in the `Server` directory. If you're stuck or want 
 
 ## Prelude: environment setup
 
-The chat server relies on Swift-NIO, which can be obtained using the Swift Package Manager. Firer up a terminal, `cd` to the `Server` folder and run these commands:
+The chat server relies on Swift-NIO, which can be obtained using the Swift Package Manager. Fire up a terminal, `cd` to the `Server` folder and run these commands:
 
 `$ swift package update`
 
@@ -55,7 +55,7 @@ Hints at what you want to do:
 
 * Create a [`ServerBootstrap`](https://apple.github.io/swift-nio/docs/current/NIO/Classes/ServerBootstrap.html) for your [`EventLoopGroup`](https://apple.github.io/swift-nio/docs/current/NIO/Protocols/EventLoopGroup.html)
 * Set options for the main server channel (the one that listens to client connections). Look into the various [`ChannelOption`](https://github.com/apple/swift-nio/blob/master/Sources/NIO/ChannelOption.swift)s and pick the ones you need
-* Setup a child channel initializer which will configure the processing pipeline for client connections.  I recommend that you use `channel.pipeline.addHandlers(_:first:)` which is easier to use than the other one shown in the documentation. At a minimum, you will want to insert the `RawLogChannelHandler` there to log data that  goes in an out.
+* Setup a child channel initializer which will configure the processing pipeline for client connections.  I recommend that you use `channel.pipeline.addHandlers(_:first:)` which is easier to use than the other one shown in the documentation. At a minimum, you will want to insert the `RawLogChannelHandler` there to log data that goes in an out.
 
 At this stage you should be able to start your server, although it won't do much besides logging what comes in. You should be able to test it by running the iOS client and see one incoming message upon connection.
 
@@ -89,7 +89,7 @@ Open the `ServerChatRoomsHandler.swift` file to get going then fill in the TODOs
 
 ## Optional: run the tests
 
-The tests have already been written for you. If you run tests, either from Xcode or from the commandline, they should mostly pass. "Mostly" because you'll quickly realize that there is one issue left that needs to be taken care of ...
+The tests have already been written for you. If you run tests, either from Xcode or from the commandline, they should mostly pass. "Mostly" because you'll quickly realize that there is one issue left that needs to be taken care of...
 
 See, TCP doesn't guarantee that everything that's being sent from one side will arrive in a single piece on the other side. There may be packet fragmentation, which means (and this happens during testing, which establishes real connections internally) that you may have JSON packets that arrive in several pieces.
 
